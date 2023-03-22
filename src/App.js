@@ -4,12 +4,15 @@ import AboutList from './components/AboutList';
 import HomePage from './components/HomePage';
 import ListItems from './components/ListItems';
 import Weather from './components/Weather';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PieChart from './components/pieChart';
+import { Provider } from 'react-redux';
+import store from './store';
+
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
         <Switch>
           <Route path ='/' exact component={HomePage} />npm
@@ -20,6 +23,7 @@ function App() {
 
         </Switch>
     </Router>
+    </Provider>
   );
 }
 

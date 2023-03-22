@@ -5,37 +5,31 @@ import NavBar from './NavBar';
 import './ListItem.css'
 
 function ListItems()  {
-
-  // const [list,setList] = useState([]); // DONT NEED THIS AS WE ARE GOING TO STORE LIST IN REDUX STORE
+  
+  const [list,setList] = useState([]);
 
   const [inputValue,setInputValue] = useState("");
-
-  const list = useSelector(state => state.list);
-  const dispatch = useDispatch();
   
 
  const getItemValue = (event) =>  {
   setInputValue(event.target.value);
   }
 
-  const handleAddItem = (event) => {
+  const addItem = (event) => {
     event.preventDefault();
-    //setList([...list,inputValue]);
-    dispatch(addItem(inputValue));
+    setList([...list,inputValue]);
     setInputValue("");
   }
 
-  const handleDeleteItem = (index) => {
-    //const newList = [...list];
-    //newList.splice(index,1);
-    //setList(newList);
-    dispatch(deleteItem(index));
+  const deleteItem = (index) => {
+    const newList = [...list];
+    newList.splice(index,1);
+    setList(newList);
   }
 
-  const handleClearAll=() => {
-    //const clearList = [];
-    //setList(clearList);
-    dispatch(clearAll());
+  const clearAll=() => {
+    const clearList = [];
+    setList(clearList);
   }
 
   return( <div className='list_data'>
@@ -44,16 +38,16 @@ function ListItems()  {
     <h2>Type in your Milestones for Today</h2>
     <label>Type Here : </label>
     <input type="text" value={inputValue} onChange={getItemValue}></input> <br></br>
-    <input type="submit" onClick={handleAddItem}></input>
+    <input type="submit" onClick={addItem}></input>
 
     <ul className='list'>
       {list.map((array,index) => (
         <li key={index}> {array}
-        <button onClick={() => handleDeleteItem(index)}> Delete </button></li>
+        <button onClick={() => deleteItem(index)}> Delete </button></li>
       ))}
     </ul>
 
-    <button onClick={handleClearAll}> CLEAR LIST </button>
+    <button onClick={clearAll}> CLEAR LIST </button>
 
     </div>
   );
