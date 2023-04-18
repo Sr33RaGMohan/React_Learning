@@ -5,19 +5,30 @@ const Weather = () => {
 
  const [weather,setWeather] = useState(null)
 
- useEffect(() => {
+  useEffect(() => {
     const APIKEY = "1633992653bd328256d5b66b485671fd";
     const APIURL = `https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${APIKEY}&units=metric`
 
     axios.get(APIURL)
-    .then(response => {
+    .then(
+      response => {
         console.log(response.data);
         setWeather(response.data);})
-    .catch(error => {console.log(error);})
+
+    .catch(
+      error => {console.log(error);})
 
  },[]);
 
+    // async function getData(){
+    //   const response = await fetch(APIURL);
+    //   const data = await response.json();
 
+    //   setWeather(response.data);
+    //   console.log(data);
+    // }
+
+    // getData();
 
   return (<div>
         {weather ? 
@@ -28,6 +39,7 @@ const Weather = () => {
 
        </div>) : (<h1> LOADING . . .</h1>)
        }
+    
     </div>
   );
 }

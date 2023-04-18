@@ -1,29 +1,30 @@
 import './App.css';
 import React from 'react';
-import AboutList from './components/AboutList';
-import HomePage from './components/HomePage';
-import ListItems from './components/ListItems';
-import Weather from './components/Weather';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import PieChart from './components/pieChart';
-import { Provider } from 'react-redux';
-import store from './store';
-
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import AboutPage from './AboutPage';
+// import ProductsPage from './ProductsPage';
+// import pieChart from './pieChart';
+import DataDisplay from '../src/Code_Wipro_1/DataDisplay';
+import ProductsPage from './ProductsPage';
 
 function App() {
   return (
-    <Provider store={store}>
-    <Router>
-        <Switch>
-          <Route path ='/' exact component={HomePage} />npm
-          <Route path ='/About' exact component={AboutList}/>
-          <Route path ='/AppPage' component={ListItems}/>
-          <Route path= '/WeatherData' component={Weather}/>
-          <Route path= '/pieChart' component={PieChart}/>
-
-        </Switch>
-    </Router>
-    </Provider>
+    <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/" activeClassName="active-link">About</Link>
+          </li>
+          <li>
+            <Link to="/products" activeClassName="active-link">Product</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route exact path="/" component={AboutPage} />
+        <Route path="/products" component={ProductsPage} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 

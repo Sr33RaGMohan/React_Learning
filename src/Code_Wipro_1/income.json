@@ -1,0 +1,11 @@
+{
+    "income": [
+      {"id":1, "description":"Salary", "amount": 5000},
+      {"id":2, "description":"Business", "amount": 2500},
+      {"id":3, "description":"Rent", "amount": 1000},
+      {"id":4, "description":"Dividend", "amount": 750},
+      {"id":5, "description":"Interest", "amount": 200},
+      {"id":6, "description":"Profits from Sale", "amount": 1500},
+      {"id":7, "description":"Trading Income", "amount": 3000}
+    ]
+  }

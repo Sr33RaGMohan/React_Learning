@@ -1,0 +1,12 @@
+{
+    "expenses":[
+    {"id":1, "description":"Housing", "price":2000},
+    {"id":2, "description":"Rent", "price":3000},
+    {"id":3, "description":"Transportation", "price":200},
+    {"id":4, "description":"Car Insurance", "price":2000},
+    {"id":5, "description":"Travel Expenses", "price":150},
+    {"id":6, "description":"Food and Groceries", "price":400},
+    {"id":7, "description":"Utility Bills", "price":400},
+    {"id":8, "description":"Cell Phone", "price":200}
+    ]
+   }

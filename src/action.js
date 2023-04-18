@@ -9,7 +9,6 @@ export const deleteItem = (item) => ({
 
     type: 'DELETE_ITEM',
     payload : item
-
 })
 
 
